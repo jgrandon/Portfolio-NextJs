@@ -5,17 +5,9 @@
 
 .grid {
     padding: 50px 0px;
-    /* height: 500px; */
-    /* gap: 30px; */
+    gap: 8px;
     display: grid;
-    /* grid-template:  50% 50% / 1fr 1fr; */
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template:  1fr 1fr / 1fr 1fr;
     height: inherit;
     justify-items: center;
-}
-
-.grid > * {
-    width: -webkit-fill-available;
-    /* border: 1px solid white; */
 }
