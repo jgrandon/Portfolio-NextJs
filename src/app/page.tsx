@@ -1,10 +1,15 @@
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import HomePage from "@/app/pages/home";
 
 export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
+        <HomePage />
+        {/*
+
         <Image
           className={styles.logo}
           src="/next.svg"
@@ -18,6 +23,9 @@ export default function Home() {
             Get started by editing <code>src/app/page.tsx</code>.
           </li>
           <li>Save and see your changes instantly.</li>
+          <li>
+            <HomePage />
+          </li>
         </ol>
 
         <div className={styles.ctas}>
@@ -45,7 +53,9 @@ export default function Home() {
             Read our docs
           </a>
         </div>
+        */}
       </main>
+      {/*
       <footer className={styles.footer}>
         <a
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
@@ -90,6 +100,7 @@ export default function Home() {
           Go to nextjs.org →
         </a>
       </footer>
+      */}
     </div>
   );
 }
