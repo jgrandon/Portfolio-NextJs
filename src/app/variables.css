@@ -1,0 +1,21 @@
+:root {
+  --background: #71b57e;
+  --foreground: #71b57e;
+  --background-enfasis: rgba(255, 255, 255, 0.205);
+  --foreground-enfasis: rgba(76, 78, 75, 0.616);
+  /* --background: #ffffff; */
+  /* --foreground: #171717; */
+}
+
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #71b57e;
+    --foreground: #71b57e;
+    --background-enfasis: rgba(255, 255, 255, 0.205);
+    --foreground-enfasis: rgba(76, 78, 75, 0.616);
+    /* --background: #0a0a0a;
+    /* --foreground: #ededed;
+  }
+}
+*/
