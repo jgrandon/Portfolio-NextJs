@@ -11,3 +11,9 @@
     height: inherit;
     justify-items: center;
 }
+
+.profilePicture {
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 0px -90px;
+}
