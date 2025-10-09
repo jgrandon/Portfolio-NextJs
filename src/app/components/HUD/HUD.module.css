@@ -1,0 +1,6 @@
+.HUD {
+    z-index: 3;
+    position: absolute;
+    color: rgb(255, 255, 255);
+    display: grid;
+}

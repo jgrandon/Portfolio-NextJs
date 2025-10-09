@@ -27,7 +27,7 @@ export default function Player(props: ThreeElements['mesh']) {
         //meshRef.current.rotation.y += 1 * delta
         const intersections = raycast()
         if (intersections.length > 1) {
-            console.log('intersection', intersections)
+            console.log('player => intersection', intersections)
         }
 
         if (playerControls.isTurning) {

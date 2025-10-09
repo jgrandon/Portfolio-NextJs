@@ -1,0 +1,28 @@
+.main {
+    width: 100%; 
+    height: 100%;
+    display: grid;
+    position: absolute;
+
+}
+
+.Menu {
+    z-index: 3;
+    color: rgb(255, 255, 255);
+    display: grid;
+}
+
+.backdrop {
+    z-index: 2;
+    position: absolute;
+    background-color: black;
+    opacity: 0.5;
+    filter: blur(5px);
+    width: 100%; 
+    height: 100%;
+}
+
+.playerHeader{
+    font-size: 50px;
+    font-weight: 900;
+}

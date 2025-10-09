@@ -2,6 +2,7 @@ import Image from 'next/image';
 import styles from './home.module.css';
 import Button from '@/app/UI/atoms/Button/'
 import Link from 'next/link'
+import { ThreeTest } from '@/app/components/ThreeTest';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
           Mi presentacion
         </div>
       </div>
+        <ThreeTest />
         <div className={styles.grid}>
             <Button >Maps Utils</Button>
             
