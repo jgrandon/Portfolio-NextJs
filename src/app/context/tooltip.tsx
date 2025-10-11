@@ -11,34 +11,41 @@ interface iTooltip {
 
 const TooltipContext = createContext({
   activeTooltips: [] as iTooltip[],
-  showTooltip: (id: string, content: React.ReactNode) => {},
+  showTooltip: (id: string, content: React.ReactNode, closeAfter?: number | false) => {},
   hideTooltip: (id: string) => {}
 });
 
 interface TooltipProviderProps {
     children: React.ReactNode 
 }
-
+/*
 interface useTooltipsReturn {
   activeTooltips: iTooltip[]
-  showTooltip: (id: string, content: React.ReactNode) => void
+  showTooltip: (id: string, content: React.ReactNode, ) => void
   hideTooltip: (id: string) => void
 }
+  */
 
 export const TooltipProvider = ({ children }: TooltipProviderProps) => {
   const [activeTooltips, setActiveTooltips] = useState<iTooltip[]>([]); // Array of tooltip IDs
     const tooltips = activeTooltips as React.ReactNode
 
 
-  const showTooltip = (id: string, content: React.ReactNode) => {
+  const showTooltip = (
+    id: string,
+    content: React.ReactNode,
+    closeAfter: number | false = 5000
+  ) => {
     setActiveTooltips(
       prev => prev.find(p => p.id === id) 
       ? [...prev]
-      : [...prev, { id, content /*, date: Date.now()*/}]
+      : [...prev, { id, content}]
     );
-    setTimeout(() => {
-      hideTooltip(id)
-    }, 5000)
+    if (closeAfter) {
+      setTimeout(() => {
+        hideTooltip(id)
+      }, closeAfter)
+    } 
   };
 
   const hideTooltip = (id:string) => {
@@ -53,4 +60,4 @@ export const TooltipProvider = ({ children }: TooltipProviderProps) => {
   );
 };
 
-export const useTooltips = () : useTooltipsReturn => useContext(TooltipContext);
+export const useTooltips = ()  => useContext(TooltipContext);

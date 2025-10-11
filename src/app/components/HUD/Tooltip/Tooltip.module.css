@@ -6,3 +6,13 @@
     padding: 15px 10px;
     color: white;
 }
+
+.button {
+    float: right;
+    margin: 0px 15px;
+    padding: 0px 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
