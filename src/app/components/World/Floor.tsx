@@ -5,7 +5,7 @@ import { useFrame, ThreeElements } from '@react-three/fiber'
 import { RigidBody } from '@react-three/rapier';
 
 export default function Floor () {
-    const color = new THREE.Color('gray')//.setRGB(0.5, 0.5, 0.5)
+    const color = new THREE.Color('#63541a')//.setRGB(0.5, 0.5, 0.5)
     
     return (
     <RigidBody
