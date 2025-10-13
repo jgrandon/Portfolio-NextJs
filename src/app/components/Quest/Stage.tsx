@@ -12,6 +12,7 @@ import usePlayerControls from '@/app/hooks/usePlayerControls'
 
 import { useTooltips } from '@/app/context/tooltip'
 import { Tooltip } from '@/app/components/HUD/Tooltip'
+import { useUnits } from '@/app/context/units'
 
 
 export function QuestStage (
@@ -22,19 +23,16 @@ export function QuestStage (
     const field = useRef<THREE.Mesh>(null!)
     const [completed, setCompleted] = useState(false)
     const { showTooltip, hideTooltip } = useTooltips();
-    const [color1, setColor1] = useState('purple')
-    const [color2, setColor2] = useState('purple')
-    const [color3, setColor3] = useState('purple')
+    const [color1, setColor1] = useState('gray')
+    const [color2, setColor2] = useState('gray')
+    const [color3, setColor3] = useState('gray')
+    const { addUnit, removeUnit } = useUnits()
+    //const  
 
     useEffect(() => {
-        console.log('Stage => useEffect', {
-            a: field.current,
-            b: box1.current
-        })
-            console.log('Stage => intersecting', box1, box2)
-        const a = field.current.geometry.boundingBox
-        const b = box1.current.translation()
-        console.log('Stage => useEffect', {a,b})
+        addUnit('box1', box1)
+        addUnit('box2', box2)
+        addUnit('box3', box3)
         const tooltipId = 'mission started'
         const newTooltip = (<Tooltip closeTooltip={tooltipId}>
             Wena comparito. Esto se trata de meter los cubos en la zona naranja. re izy
@@ -64,6 +62,9 @@ export function QuestStage (
             hideTooltip('mission started')
             showTooltip('mission complete', newTooltip, 15000)
             setCompleted(true)
+            removeUnit('box1')
+            removeUnit('box2')
+            removeUnit('box3')
         }
     }
 

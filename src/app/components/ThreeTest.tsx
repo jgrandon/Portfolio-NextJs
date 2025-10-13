@@ -8,7 +8,7 @@ import Player from '@/app/components/Player'
 import { Physics } from '@react-three/rapier'
 import { GoalField } from '@/app/components/GoalField'
 import { Quest } from '@/app/components/Quest'
-
+import { UnitsProvider } from '../context/units'
 export function ThreeTest() {
     return (
         <Canvas>
@@ -26,11 +26,13 @@ export function ThreeTest() {
                     <pointLight position={[-10, -10, -10]}
                         decay={0} intensity={Math.PI} />
 
-                    <Player />
+                    <UnitsProvider>
+                        <Player />
+                        <Quest />
+                    </UnitsProvider>
                     
                     <Floor />
                     
-                    <Quest />
                 </Physics>
                 <OrbitControls />
             </Suspense>
