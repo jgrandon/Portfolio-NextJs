@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState, RefObject } from 'react';
 import { useFrame } from '@react-three/fiber';
 import IKeyPressed from '@/app/interfaces/KeyPressed'
 import useKeyboard from './useKeyboard';
-import { useUnits } from '@/app/context/units'
+import { useGame } from '@/app/context/game'
 import { IUnit } from '@/app/interfaces/Units'
 
 interface IPlayerControls {
@@ -16,8 +16,7 @@ export default function useAttack(player: IUnit) {
     })
     const [needsCoolDown, setNeedsCoolDown] = useState(false)
 
-
-    const { units, removeUnit } = useUnits ()
+    const { units, removeUnit } = useGame ().unitsContext
 
     
 

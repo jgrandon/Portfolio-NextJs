@@ -16,10 +16,10 @@ export function GoalField(props: IProps) {
     return <mesh
         ref={ref}
         position={position}
-        scale={active ? 1.5 : 1}
+        //scale={active ? 1.5 : 1}
         onClick={(event) => setActive(!active)}
     >
-        <cylinderGeometry args={[3, 3, 30 ,15]} />
-        <meshStandardMaterial color={color} transparent opacity={0.6}/>
+        <cylinderGeometry args={[6, 6, 30 ,15]} />
+        <meshStandardMaterial color={color} transparent opacity={0.3}/>
     </mesh>
 }

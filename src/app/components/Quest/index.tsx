@@ -16,15 +16,5 @@ export function Quest (
     const [status, setStatus] = useState<QuestStatus>()
     //const currentStage = useRef<QuestStage>(undefined)
 
-    return <>
-    {
-    /*
-        <HUD>
-            <div style={{backgroundColor: 'blue', color: 'white'}}>
-                Quest Dialog
-            </div>
-        </HUD>
-        */}
-        <QuestStage />
-    </>
+    return <QuestStage />
 }

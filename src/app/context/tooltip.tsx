@@ -28,7 +28,7 @@ interface useTooltipsReturn {
 
 export const TooltipProvider = ({ children }: TooltipProviderProps) => {
   const [activeTooltips, setActiveTooltips] = useState<iTooltip[]>([]); // Array of tooltip IDs
-    const tooltips = activeTooltips as React.ReactNode
+    //const tooltips = activeTooltips as React.ReactNode
 
 
   const showTooltip = (

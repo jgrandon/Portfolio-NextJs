@@ -1,19 +1,20 @@
 'use client'
 import * as THREE from 'three'
-import { useFrame, ThreeElements } from '@react-three/fiber'
-import { StaticCopyUsage } from "three"
+import { useFrame } from '@react-three/fiber'
 import { useState, useRef, useEffect, RefObject } from 'react'
-import { GoalField } from "../GoalField"
-import {Box} from '@/app/components/Box'
-import { IntersectionEnterPayload, RapierRigidBody } from '@react-three/rapier'; // For Rapier
-
-import { useForwardRaycast } from '@/app/hooks/useForwardRaycast'
-import usePlayerControls from '@/app/hooks/usePlayerControls'
-
+import { GoalField } from "@/app/components/GoalField"
+import {Box} from '@/app/components/Units/Box'
+import { RapierRigidBody } from '@react-three/rapier'
 import { useTooltips } from '@/app/context/tooltip'
 import { Tooltip } from '@/app/components/HUD/Tooltip'
-import { useUnits } from '@/app/context/units'
+import { useGame } from '@/app/context/game'
+import { SpeedBuff } from '../Units/Buffs'
+import useIntersection from '@/app/hooks/useIntersection'
 
+/*
+import { useForwardRaycast } from '@/app/hooks/useForwardRaycast'
+import usePlayerControls from '@/app/hooks/usePlayerControls'
+*/
 
 export function QuestStage (
 ) {
@@ -26,8 +27,8 @@ export function QuestStage (
     const [color1, setColor1] = useState('gray')
     const [color2, setColor2] = useState('gray')
     const [color3, setColor3] = useState('gray')
-    const { addUnit, removeUnit } = useUnits()
-    //const  
+    const { addUnit, removeUnit } = useGame().unitsContext
+    const intersections = useIntersection(field)
 
     useEffect(() => {
         addUnit('box1', box1)
@@ -48,9 +49,11 @@ export function QuestStage (
     })
 
     const checkIfCompleted = () => {
-        const a = areIntersecting(field, box1)
-        const b = areIntersecting(field, box2)
-        const c = areIntersecting(field, box3)
+        const a = intersections.current.find(i => i.id == 'box1')
+        const b = intersections.current.find(i => i.id == 'box2')
+        const c = intersections.current.find(i => i.id == 'box3')
+        //const b = areIntersecting(field, box2)
+        //const c = areIntersecting(field, box3)
         if (a) setColor1('green')
         if (b) setColor2('green')
         if (c) setColor3('green')
@@ -93,21 +96,22 @@ export function QuestStage (
     {
         completed ? null : (
             <>
-            <Box ref={box1} position={[3, 0, 4]} 
+            <Box ref={box1} position={[8, 0, 7]} 
             color={color1}
             />
-            <Box ref={box2} position={[7, 0, 0]} 
+            <Box ref={box2} position={[8, 0, 5]} 
             color={color2}
             />
-            <Box ref={box3} position={[7, 0, 3]}
+            <Box ref={box3} position={[15, 0, 10]}
             color={color3}
             />
             </>
         )
     }
+        <SpeedBuff position={[35,-3.9,15]}/>
         <GoalField 
             ref={field}
-            position={[15,0,15]}
+            position={[15, 0, 15]}
             color={completed ? 'green' : 'orange'}
         />
     </>

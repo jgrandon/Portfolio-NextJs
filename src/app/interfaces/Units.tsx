@@ -3,7 +3,7 @@ import { RefObject } from 'react'
 import { RapierRigidBody } from '@react-three/rapier';
 import { NumberController } from 'three/examples/jsm/libs/lil-gui.module.min.js';
 
-export type IUnitRef = RefObject<THREE.Mesh | RapierRigidBody>
+export type IUnitRef = RefObject< /* THREE.Mesh | */ RapierRigidBody>
 
 export interface IUnit {
     id: string

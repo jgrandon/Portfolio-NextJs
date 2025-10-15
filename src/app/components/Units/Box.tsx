@@ -25,17 +25,12 @@ export function Box(props: IProps) {
     //const [hovered, setHover] = useState(false)
     const [active, setActive] = useState(false)
     
-
-    
     useFrame((state, delta) =>  {
         //(meshRef.current.rotation.x += delta/5)
         if (rigidBodyRef.current) {
             console.log('box rigidBodyRef', rigidBodyRef.current)
         }
-    }
-    )
-    
-
+    })
 
 
     const onIntersectionEnter = (payload: IntersectionEnterPayload): void => 
@@ -44,16 +39,20 @@ export function Box(props: IProps) {
     }
     return (
         <RigidBody
+        type="dynamic"
+        mass={1}
         ref={ref}
+        colliders={"cuboid"}
         onIntersectionEnter={onIntersectionEnter}
-        position={position}>
+        //position={position}
+        >
             <mesh
                 position={position}
                 //ref={ref}
                 scale={active ? 1.5 : 1}
                 onClick={(event) => setActive(!active)}
                 >
-                <boxGeometry args={[1, 1, 1]} />
+                <boxGeometry args={[ 2, 2, 2]} />
                 <meshStandardMaterial color={color} />
             </mesh>
         </RigidBody>  
