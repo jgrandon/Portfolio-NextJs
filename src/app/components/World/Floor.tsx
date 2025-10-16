@@ -9,10 +9,9 @@ export default function Floor () {
     
     return (
     <RigidBody
-    position={[0, -5, 0]}
     colliders="cuboid"
     type="fixed">
-        <mesh>
+        <mesh position={[0, -5, 0]}>
             <boxGeometry args={[10000, 0.1, 10000]} />
             <meshStandardMaterial color={color} />
         </mesh>
