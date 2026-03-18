@@ -18,8 +18,6 @@ export default function useAttack(player: IUnit) {
 
     const { units, removeUnit } = useGame ().unitsContext
 
-    
-
     useFrame((_, delta) => {
         if (keyPressed.current['t']) {
             if (!needsCoolDown) {
@@ -31,7 +29,7 @@ export default function useAttack(player: IUnit) {
             }
         }
 
-            setPlayerControls({isTurning: false})
+        setPlayerControls({isTurning: false})
     });
 /*
     TODO:

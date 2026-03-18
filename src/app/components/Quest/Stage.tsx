@@ -7,7 +7,7 @@ import { IntersectionEnterPayload, RapierRigidBody } from '@react-three/rapier'
 import { useTooltips } from '@/app/context/tooltip'
 import { Tooltip } from '@/app/components/HUD/Tooltip'
 import { useGame } from '@/app/context/game'
-import { SpeedBuff } from '../Units/Buffs'
+import { SizeBuff, SpeedBuff } from '../Units/Buffs'
 import delay from '@/app/utils/delay'
 export function QuestStage (
 ) {
@@ -43,7 +43,7 @@ export function QuestStage (
         setBoxesCompleted([a,b,c])
 
         await delay(300)
-        
+
         if (a&&b&&c) {
             const newTooltip = (<Tooltip>
                 Enhorabuena... Mision completada
@@ -75,6 +75,7 @@ export function QuestStage (
         )
     }
         <SpeedBuff position={[35,-3.9,15]}/>
+        <SizeBuff position={[20,-3.9,15]}/>
         <GoalField
             onIntersection={validateGoal}
             ref={field}

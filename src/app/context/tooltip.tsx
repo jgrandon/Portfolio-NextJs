@@ -4,9 +4,8 @@ interface iTooltip {
     id: string
     content: React.ReactNode
     //date: number
-
     //placement
-    //delay 
+    //delay
 }
 
 const TooltipContext = createContext({

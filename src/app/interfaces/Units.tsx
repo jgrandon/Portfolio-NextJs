@@ -16,4 +16,6 @@ export interface IUnitStats {
     currentLp: number
     attack: number
     deffense: number
+    speed: number
+    size: number
 }

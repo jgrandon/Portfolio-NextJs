@@ -22,7 +22,7 @@ export default function usePlayerMovement(
 
     const [, get] = useKeyboardControls();
 
-    const WALK_SPEED = 5
+    const WALK_SPEED = 8
     const ROTATION_SPEED = 0
     const RUN_SPEED = 15
 /*
@@ -79,7 +79,8 @@ export default function usePlayerMovement(
             movement.z = -1;
         }
 
-        let speed = get().run ? RUN_SPEED : WALK_SPEED;
+        const player = units.current.find(u => u.ref.current == ref.current)
+        let speed = (get().run ? RUN_SPEED : WALK_SPEED) * (player?.stats.speed ?? 1);
     /*
         if (isClicking.current) {
             console.log("clicking", mouse.x, mouse.y);
